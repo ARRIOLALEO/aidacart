@@ -29,7 +29,7 @@ const SingleProduct = () => {
 
       <div className="product-details">
         <div className="product-detail-image">
-          <img src={data?.fields?.image[0].url} />
+          <img src={data?.fields?.image[0].url} alt=""/>
         </div>
         <div className="product-details-right">
           <h1>{data?.fields?.name}</h1>
@@ -37,7 +37,9 @@ const SingleProduct = () => {
           <h4>${data?.fields?.price}</h4>
           <p>{data?.fields?.description}</p>
           <Button
-            oncClick={() => cart.addOneToCart(id)}
+            onClick={() =>{
+               addOneToCart(id,data?.fields?.name,data?.fields?.price)
+              }}
             style={{ backgroundColor: "purple" }}
           >
             Add to Cart
